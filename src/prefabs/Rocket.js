@@ -10,18 +10,18 @@ class Rocket extends Phaser.GameObjects.Sprite{
     }
 
     update(){
-        this.p1Rocket.update();
         // left/right movement
         if(!this.isFiring){
-            if(ketLEFT.isDown && this.x >= borderUISize + this.width){
+            if(keyLEFT.isDown && this.x >= borderUISize + this.width){
                 this.x -= this.moveSpeed;
-            } else if (keyRIGHT.isDown && this.x <= game.config.width - 
+            } 
+            else if (keyRIGHT.isDown && this.x <= game.config.width - 
                 borderUISize - this.width){
-                    this.x += this.moveSpeed.moveSpeed;
+                    this.x += this.moveSpeed;
                 }
         }
         //fire button
-        if(Phaser.Input.Ketboard.Justdown(keyF)){
+        if(Phaser.Input.Keyboard.JustDown(keyF)){
             this.isFiring = true;
         }
         // if fired, move up
@@ -33,5 +33,10 @@ class Rocket extends Phaser.GameObjects.Sprite{
             this.isFiring = false;
             this.y = game.config.height - borderUISize - borderPadding;
         }
+    }
+    // reset rocket to "ground"
+    reset(){
+        this.isFiring = false;
+        this.y = game.config.height - borderUISize - borderPadding;
     }
 }
