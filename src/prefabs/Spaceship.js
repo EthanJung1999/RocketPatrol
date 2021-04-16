@@ -4,9 +4,11 @@ class Spaceship extends Phaser.GameObjects.Sprite{
         scene.add.existing(this);   // add to existing scene
         this.points = pointValue;   // store pointValue
         this.moveSpeed = game.settings.spaceshipSpeed;
+        this.direction = Phaser.Math.Between(0, 1);
     }
 
     update(){
+        if(this.direction == 1){
         // move spaceship left
         this.x -= this.moveSpeed;
         // wrap around from left edge to right edge
@@ -15,10 +17,24 @@ class Spaceship extends Phaser.GameObjects.Sprite{
         }
         
     }
+    else{
+        // move spaceship left
+        this.x += this.moveSpeed;
+        // wrap around from left edge to right edge
+        if(this.x >= game.config.width + this. width){
+            this.x = 0;
+        }
+    }
+    }
 
     //position reset
     reset(){
-        this.x = game.config.width;
+        if(this.direction == 1){
+        this.x = 0;
+        }
+        else{
+            this.x = game.config.width;
+        }
     }
 
     speedup(){
