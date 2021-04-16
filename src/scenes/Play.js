@@ -40,6 +40,7 @@ class Play extends Phaser.Scene{
     });
     // initialize score
     this.p1Score = 0;
+    
     // display score
   let scoreConfig = {
     fontFamily: 'Courier',
@@ -51,12 +52,14 @@ class Play extends Phaser.Scene{
       top: 5,
       bottom: 5,
     },
-    fixedWidth: 100
+    fixedWidth: 70
   }
   this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
+  if(!this.p1Rocket.reset()){
+  this.add.text(borderUISize + borderPadding + 180, borderUISize + borderPadding*2, 'FIRE', scoreConfig);
+}
   // GAME OVER flag
 this.gameOver = false;
-  // 60-second play clock
 scoreConfig.fixedWidth = 0;
 this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
     this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
