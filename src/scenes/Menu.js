@@ -36,7 +36,7 @@ keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
           // easy mode
           game.settings = {
             spaceshipSpeed: 3,
-            gameTimer: 60000    
+            gameTimer: 1000    
           }
           this.sound.play('sfx_select');
           this.scene.start('playScene');    
