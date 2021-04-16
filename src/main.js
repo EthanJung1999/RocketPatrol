@@ -1,6 +1,7 @@
 /*Points breakdown:
 Implement the 'FIRE' UI text from the original game (5)
 Allow the player to control the Rocket after it's fired (5)
+Implement the speed increase that happens after 30 seconds in the original game (5)
 */
 let config = {
     type: Phaser.AUTO,
